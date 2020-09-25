@@ -5,7 +5,7 @@
 
 - include_tasks: apt_repo.yml
   tags:
-    - docker_dependencies
+    - docker_repository
 
 - name: "Install docker package with apt"
   apt:
