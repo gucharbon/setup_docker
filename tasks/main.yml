@@ -33,8 +33,6 @@
 - name: "Install docker package with apt"
   apt:
     state: present
-    update_cache: true
-    cache_valid_time: 3600
     name: "{{ docker_packages }}"
   notify: restart docker
   tags:
