@@ -1,0 +1,12 @@
+# Docker options
+---
+docker_repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable" # yamllint disable-line
+
+docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+
+docker_service_state: started
+docker_service_enabled: true
+docker_restart_handler_state: restarted
