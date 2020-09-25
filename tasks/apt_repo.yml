@@ -11,3 +11,6 @@
     update_cache: no
   notify:
     - update apt cache
+
+- name: Force all notified handlers to run at this point
+  meta: flush_handlers
