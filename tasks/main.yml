@@ -1,34 +1,11 @@
 ---
-- name: "Remove old versions of docker with apt"
-  apt:
-    name: "{{ old_docker_packages }}"
-    state: absent
-  become: true
+- include_tasks: dependencies.yml
   tags:
     - docker_dependencies
 
-- name: "Install docker dependencies with apt"
-  apt:
-    name: "{{ docker_dependencies }}"
-    update_cache: true
-    cache_valid_time: 3600
-    state: present
+- include_tasks: apt_repo.yml
   tags:
     - docker_dependencies
-
-- name: "Add docker gpg key with apt_key"
-  apt_key:
-    state: present
-    url: "{{ docker_gpg_key }}"
-  tags:
-    - docker_package
-
-- name: "Add docker apt repository with apt_repository"
-  apt_repository:
-    state: present
-    repo: "{{ docker_repo }}"
-  tags:
-    - docker_package
 
 - name: "Install docker package with apt"
   apt:

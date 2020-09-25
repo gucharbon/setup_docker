@@ -1,0 +1,10 @@
+---
+- name: "Add docker gpg key with apt_key"
+  apt_key:
+    state: present
+    url: "{{ docker_gpg_key }}"
+
+- name: "Add docker apt repository with apt_repository"
+  apt_repository:
+    state: present
+    repo: "{{ docker_repo }}"

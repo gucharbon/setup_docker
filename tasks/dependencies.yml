@@ -1,0 +1,10 @@
+---
+- name: "Remove old versions of docker with apt"
+  apt:
+    name: "{{ old_docker_packages }}"
+    state: absent
+
+- name: "Install docker dependencies with apt"
+  apt:
+    name: "{{ docker_dependencies }}"
+    state: present
